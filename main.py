@@ -67,11 +67,6 @@ def save_data_from_form(data):
     parse_data = urllib.parse.unquote_plus(data.decode())
     try:
         parse_dict = {key: value for key, value in [el.split('=') for el in parse_data.split('&')]}
-        # with open('data/data.json', 'r', encoding='utf-8') as file:
-        #     data = json.load(file)
-        #     data[str(datetime.now())] = parse_dict
-        # json.dump(parse_dict, file, ensure_ascii=False, indent=4)
-
         if (BASE_DIR.joinpath('storage/data.json')).exists():
             with open(BASE_DIR.joinpath('storage/data.json'), 'r', encoding='utf-8') as fd:
                 data = json.load(fd)
